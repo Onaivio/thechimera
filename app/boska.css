@@ -1,0 +1,139 @@
+/**
+* @license
+*
+* Font Family: c
+* Designed by: Barbara Bigosinska
+* URL: https://www.fontshare.com/fonts/boska
+* © 2026 Indian Type Foundry
+*
+* Boska Extralight 
+* Boska ExtralightItalic 
+* Boska Light 
+* Boska LightItalic 
+* Boska Regular 
+* Boska Italic 
+* Boska Medium 
+* Boska MediumItalic 
+* Boska Bold 
+* Boska BoldItalic 
+* Boska Black 
+* Boska BlackItalic 
+* Boska Variable (Variable font)
+* Boska VariableItalic (Variable font)
+
+*
+*/
+@font-face {
+  font-family: "Boska-Extralight";
+  src: url("../public/assets/fonts/Boska-Extralight.woff2") format("woff2");
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boska-ExtralightItalic";
+  src: url("../public/assets/fonts/Boska-ExtralightItalic.woff2") format("woff2");
+  font-weight: 200;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Boska-Light";
+  src: url("../public/assets/fonts/Boska-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boska-LightItalic";
+  src: url("../public/assets/fonts/Boska-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Boska-Regular";
+  src: url("../public/assets/fonts/Boska-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boska-Italic";
+  src: url("../public/assets/fonts/Boska-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Boska-Medium";
+  src: url("../public/assets/fonts/Boska-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boska-MediumItalic";
+  src: url("../public/assets/fonts/Boska-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Boska-Bold";
+  src: url("../public/assets/fonts/Boska-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boska-BoldItalic";
+  src: url("../public/assets/fonts/Boska-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Boska-Black";
+  src: url("../public/assets/fonts/Boska-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Boska-BlackItalic";
+  src: url("../public/assets/fonts/Boska-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+  font-style: italic;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 200.0;
+*
+* available axes:
+'wght' (range from 200.0 to 900.0
+*/
+@font-face {
+  font-family: "Boska-Variable";
+  src: url("../public/assets/fonts/Boska-Variable.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 200.0;
+*
+* available axes:
+'wght' (range from 200.0 to 900.0
+*/
+@font-face {
+  font-family: "Boska-VariableItalic";
+  src: url("../public/assets/fonts/Boska-VariableItalic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: italic;
+}
