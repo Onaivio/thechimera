@@ -5,6 +5,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { useMutation } from "@tanstack/react-query";
+import { useSubmissionsStore } from "@/stores/submissions-store";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -23,9 +25,8 @@ type ConsultationPayload = {
 
 export function Consultation() {
   const container = useRef(null);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [referenceId, setReferenceId] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const referenceId = useSubmissionsStore((s) => s.consultationReferenceId);
+  const setReferenceId = useSubmissionsStore((s) => s.setConsultationReferenceId);
 
   const [formData, setFormData] = useState<ConsultationPayload>({
     fullName: "",
@@ -94,11 +95,8 @@ export function Consultation() {
     { scope: container },
   );
 
-  const submit = async (payload: ConsultationPayload) => {
-    setStatus("submitting");
-    setErrorMessage(null);
-
-    try {
+  const consultationMutation = useMutation({
+    mutationFn: async (payload: ConsultationPayload) => {
       const response = await fetch("/api/consultation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -111,17 +109,16 @@ export function Consultation() {
         throw new Error(data.error || "Unable to submit your request. Please try again.");
       }
 
-      setReferenceId(data.referenceId || null);
-      setStatus("success");
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
-    }
-  };
+      return { referenceId: data.referenceId || null };
+    },
+    onSuccess: (data) => {
+      setReferenceId(data.referenceId);
+    },
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await submit(formData);
+    await consultationMutation.mutateAsync(formData);
   };
 
   return (
@@ -139,7 +136,7 @@ export function Consultation() {
 
       <section className="pb-12 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
-          {status !== "success" ? (
+          {!consultationMutation.isSuccess ? (
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="form-field">
                 <label htmlFor="fullName" className="block text-sm tracking-wider mb-3">
@@ -261,19 +258,23 @@ export function Consultation() {
                 />
               </div>
 
-              {status === "error" && (
+              {consultationMutation.isError && (
                 <div className="form-field">
-                  <p className="text-sm text-red-600">{errorMessage}</p>
+                  <p className="text-sm text-red-600">
+                    {consultationMutation.error instanceof Error
+                      ? consultationMutation.error.message
+                      : "Something went wrong."}
+                  </p>
                 </div>
               )}
 
               <div className="form-field text-center pt-6">
                 <button
                   type="submit"
-                  disabled={status === "submitting"}
+                  disabled={consultationMutation.isPending}
                   className="inline-block border-b-2 border-foreground pb-1 text-sm tracking-wider uppercase hover:text-accent hover:border-accent transition-colors disabled:opacity-50"
                 >
-                  {status === "submitting" ? "Submitting..." : "Book Consultation"}
+                  {consultationMutation.isPending ? "Submitting..." : "Book Consultation"}
                 </button>
               </div>
             </form>
