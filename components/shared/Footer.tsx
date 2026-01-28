@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,29 +13,39 @@ export function Footer() {
   const container = useRef<HTMLElement>(null);
 
   const socialLinks = [
-    { icon: Instagram, href: "#" },
-    { icon: Facebook, href: "#" },
-    { icon: Twitter, href: "#" },
-    { icon: Mail, href: "#" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Twitter, href: "https://x.com", label: "X" },
+    { icon: Mail, href: "mailto:hello@thechimeracompany.com", label: "Email" },
   ];
 
   const footerLinks = [
     {
       title: "SERVICES",
       links: [
-        "Weddings",
-        "Corporate Events",
-        "Social Events",
-        "Consultation",
+        { label: "Weddings", href: "/services/weddings" },
+        { label: "Corporate Events", href: "/services/corporate" },
+        { label: "Social Events", href: "/services/social" },
+        { label: "Destination Events", href: "/services/destination" },
       ],
     },
     {
       title: "COMPANY",
-      links: ["About Us", "Portfolio", "Approach", "Contact"],
+      links: [
+        { label: "About Us", href: "/about" },
+        { label: "Portfolio", href: "/portfolio" },
+        { label: "Our Approach", href: "/#process" },
+        { label: "Contact", href: "/contact" },
+      ],
     },
     {
       title: "RESOURCES",
-      links: ["Blog", "Case Studies", "Testimonials", "FAQ"],
+      links: [
+        { label: "Consultation", href: "/consultation" },
+        { label: "Explore (Vendors)", href: "/explore" },
+        { label: "Testimonials", href: "/testimonials" },
+        { label: "FAQ", href: "/#faq" },
+      ],
     },
   ];
 
@@ -121,13 +132,14 @@ export function Footer() {
             <p className="footer-cta-p text-sm opacity-80 mb-8 max-w-md leading-relaxed">
               Let’s design an experience your guests will never forget.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Link
+              href="/consultation"
               className="footer-cta-btn inline-block border-b-2 border-background pb-1 text-sm tracking-wider uppercase"
             >
-              Schedule Your Consultation
-            </motion.button>
+              <motion.span whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+                Schedule Your Consultation
+              </motion.span>
+            </Link>
           </div>
 
           {/* Right: Links */}
@@ -142,13 +154,14 @@ export function Footer() {
                 <ul className="space-y-3">
                   {column.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <motion.a
-                        whileHover={{ x: 4 }}
-                        href="#"
+                      <Link
+                        href={link.href}
                         className="text-sm opacity-70 hover:opacity-100 transition-opacity"
                       >
-                        {link}
-                      </motion.a>
+                        <motion.span whileHover={{ x: 4 }} className="inline-block">
+                          {link.label}
+                        </motion.span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -169,8 +182,11 @@ export function Footer() {
               <motion.a
                 key={index}
                 href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="opacity-70 hover:opacity-100 transition-opacity"
+                aria-label={link.label}
               >
                 <link.icon className="w-5 h-5" />
               </motion.a>
