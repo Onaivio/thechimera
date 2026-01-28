@@ -56,17 +56,17 @@ export function Portfolio() {
             duration: 1,
             ease: "power3.out",
           },
-          "-=0.8"
+          "-=0.8",
         );
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
     <div className="min-h-screen" ref={container}>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] mt-24 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 grid grid-cols-2">
           <div className="relative overflow-hidden">
             <ImageWithFallback
@@ -82,18 +82,15 @@ export function Portfolio() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute inset-0 bg-primary/40" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
-        <div
-          className="relative z-10 text-center text-primary-foreground px-6"
-        >
-          <h1 className="hero-title text-6xl md:text-8xl mb-6">
-            OUR RECENT
-            <br />
-            EVENTS
+        <div className="relative z-10 text-center text-primary-foreground px-6">
+          <h1 className="hero-title text-white text-6xl md:text-8xl mb-6 max-w-2xl">
+            OUR WORK SPEAKS FOR ITSELF
           </h1>
-          <p className="hero-subtitle text-xl max-w-2xl mx-auto opacity-90">
-            Explore our portfolio of unforgettable luxury events and celebrations
+          <p className="hero-subtitle md:text-lg text-white max-w-2xl mx-auto opacity-90">
+            From intimate weddings to grand corporate galas, explore how we
+            transform ideas into extraordinary experiences.
           </p>
         </div>
       </section>
@@ -135,7 +132,10 @@ export function Portfolio() {
 
                 {/* Right: Project Image */}
                 <div className="lg:col-span-2 order-1 lg:order-2">
-                  <Link href={`/portfolio/${project.slug}`} className="block group">
+                  <Link
+                    href={`/portfolio/${project.slug}`}
+                    className="block group"
+                  >
                     <div className="relative aspect-[16/10] overflow-hidden rounded-sm">
                       <ImageWithFallback
                         src={project.thumbnail}
