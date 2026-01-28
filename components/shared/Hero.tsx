@@ -55,7 +55,7 @@ export function Hero() {
   return (
     <section
       ref={container}
-      className="min-h-screen pt-32 lg:pt-40 xl:pt-44"
+      className="pt-32 lg:pt-40 xl:pt-44"
     >
       <div className=" mx-auto sm:px-6 px-4 lg:px-12">
         {/* Hero Text */}
