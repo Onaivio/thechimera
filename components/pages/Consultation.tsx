@@ -137,7 +137,7 @@ export function Consultation() {
         </div>
       </section>
 
-      <section className="py-12 px-6 lg:px-12">
+      <section className="pb-12 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           {status !== "success" ? (
             <form onSubmit={handleSubmit} className="space-y-8">

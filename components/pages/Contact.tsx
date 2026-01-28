@@ -95,7 +95,7 @@ export function Contact() {
 
   return (
     <div ref={container} className="min-h-screen">
-      <section className="py-32 px-6 text-center">
+      <section className="pt-32 lg:pt-40 pb-24 px-6 text-center">
         <div>
           <h1 className="hero-title text-6xl md:text-8xl mb-6">
             GET IN TOUCH
@@ -106,7 +106,7 @@ export function Contact() {
         </div>
       </section>
 
-      <section className="py-16 px-6">
+      <section className="pb-16 px-6">
         <div className="max-w-3xl mx-auto">
           <form
             onSubmit={handleSubmit}
