@@ -12,16 +12,19 @@ export function generateStaticParams() {
   }));
 }
 
-const PortfolioDetailPage = ({ params }: { params: { slug: string } }) => {
+export default async function PortfolioDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   return (
     <div>
       {/* Fixed Navigation Header */}
       <Header />
-      <PortfolioDetail slug={params.slug} />
+      <PortfolioDetail slug={slug} />
       {/* Footer with CTA and links */}
       <Footer />
     </div>
   );
-};
-
-export default PortfolioDetailPage;
+}
