@@ -53,6 +53,8 @@ export function Header() {
     { name: "Services", path: "/services" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "Contact", path: "/contact" },
+    { name: "Consultation", path: "/consultation" },
+    { name: "Explore", path: "/explore" },
   ];
 
   return (
@@ -64,7 +66,7 @@ export function Header() {
         <div className="flex items-center lg:justify-center justify-between gap-8 lg:gap-12">
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex uppercase gap-8">
-            {navLinks.slice(0, 2).map((link) => (
+            {navLinks.slice(0, 3).map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
@@ -92,7 +94,7 @@ export function Header() {
           </Link>
           {/* Desktop Navigation (Right) */}
           <nav className="hidden lg:flex uppercase gap-8">
-            {navLinks.slice(2, 4).map((link) => (
+            {navLinks.slice(3, 6).map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
