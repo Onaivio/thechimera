@@ -236,7 +236,7 @@ export function About() {
                 our work reflects a commitment to excellence and a deep respect
                 for every client&apos;s vision.
               </p>
-              <Link href="/contact">
+              <Link href="/consultation">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   className="about-hero-text inline-block border-b-2 border-foreground pb-1 text-sm tracking-wider mt-4 lg:mt-6 uppercase"
