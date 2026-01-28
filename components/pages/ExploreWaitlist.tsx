@@ -5,6 +5,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { useMutation } from "@tanstack/react-query";
+import { useSubmissionsStore } from "@/stores/submissions-store";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -20,8 +22,8 @@ type WaitlistPayload = {
 
 export function ExploreWaitlist() {
   const container = useRef(null);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const waitlistJoined = useSubmissionsStore((s) => s.waitlistJoined);
+  const setWaitlistJoined = useSubmissionsStore((s) => s.setWaitlistJoined);
 
   const [formData, setFormData] = useState<WaitlistPayload>({
     fullName: "",
@@ -64,31 +66,32 @@ export function ExploreWaitlist() {
     { scope: container },
   );
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("submitting");
-    setErrorMessage(null);
-
-    try {
+  const waitlistMutation = useMutation({
+    mutationFn: async (payload: WaitlistPayload) => {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       const data = (await response.json()) as { ok: boolean; error?: string };
       if (!response.ok || !data.ok) {
         throw new Error(data.error || "Unable to join the waitlist.");
       }
-      setStatus("success");
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
-    }
+      return { ok: true };
+    },
+    onSuccess: () => {
+      setWaitlistJoined(true);
+    },
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await waitlistMutation.mutateAsync(formData);
   };
 
   return (
     <div ref={container} className="min-h-screen">
-      <section className="py-20 lg:py-28 px-6 lg:px-12 text-center">
+      <section className="pt-20 lg:pt-28 px-6 pb-12 lg:px-12 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="explore-title text-5xl lg:text-7xl font-light mb-6 uppercase tracking-tight">
             Explore
@@ -115,7 +118,7 @@ export function ExploreWaitlist() {
 
       <section className="py-12 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
-          {status !== "success" ? (
+          {!waitlistJoined ? (
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="form-field">
                 <label htmlFor="fullName" className="block text-sm tracking-wider mb-3">
@@ -188,19 +191,23 @@ export function ExploreWaitlist() {
                 />
               </div>
 
-              {status === "error" && (
+              {waitlistMutation.isError && (
                 <div className="form-field">
-                  <p className="text-sm text-red-600">{errorMessage}</p>
+                  <p className="text-sm text-red-600">
+                    {waitlistMutation.error instanceof Error
+                      ? waitlistMutation.error.message
+                      : "Something went wrong."}
+                  </p>
                 </div>
               )}
 
               <div className="form-field text-center pt-6">
                 <button
                   type="submit"
-                  disabled={status === "submitting"}
+                  disabled={waitlistMutation.isPending}
                   className="inline-block border-b-2 border-foreground pb-1 text-sm tracking-wider uppercase hover:text-accent hover:border-accent transition-colors disabled:opacity-50"
                 >
-                  {status === "submitting" ? "Submitting..." : "Join Waitlist"}
+                  {waitlistMutation.isPending ? "Submitting..." : "Join Waitlist"}
                 </button>
               </div>
             </form>
