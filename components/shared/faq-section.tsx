@@ -76,7 +76,7 @@ export function FaqSection() {
 
   return (
     <div ref={container} className="">
-      <section className="py-24 px-6">
+      <section id="faq" className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="faq-section-title text-4xl md:text-5xl text-center mb-16">
             FREQUENTLY ASKED QUESTIONS
