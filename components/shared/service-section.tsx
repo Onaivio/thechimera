@@ -12,9 +12,9 @@ import Link from "next/link";
 const services = [
   {
     id: 1,
-    title: "Luxury Weddings",
+    title: "Weddings",
     description:
-      "Bespoke celebrations that reflect your love story. From intimate ceremonies to grand destination affairs.",
+      "Tailored celebrations that reflect your love story, culture, and personality — from design to execution, every moment feels effortless.",
     image:
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
     link: "/services/weddings",
@@ -23,16 +23,16 @@ const services = [
     id: 2,
     title: "Corporate Events",
     description:
-      "Polished, strategic events that strengthen your brand. Product launches, conferences, and executive retreats.",
+      "Polished, strategic events that enhance your brand, engage your audience, and leave a lasting professional impression.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
     link: "/services/corporate",
   },
   {
     id: 3,
-    title: "Social Gatherings",
+    title: "Social Events",
     description:
-      "Elegant celebrations for life's milestones. Birthdays, anniversaries, and intimate soirées.",
+      "From milestone birthdays to private soirées, we create elegant gatherings that turn life’s moments into cherished memories.",
     image:
       "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
     link: "/services/social",
@@ -41,7 +41,7 @@ const services = [
     id: 4,
     title: "Destination Events",
     description:
-      "Comprehensive coordination for extraordinary locations. Venue selection, logistics, and on-site execution.",
+      "Planning beyond borders — seamless, stress-free experiences in breathtaking locations.",
     image:
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
     link: "/services/destination",
@@ -50,7 +50,7 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <section className="overflow-hidden pb-14 pt-14 md:pb-16 md:pt-16 max-w-7xl mx-auto">
+    <section id="services" className="overflow-hidden pb-14 pt-14 md:pb-16 md:pt-16 max-w-7xl mx-auto">
       <div className="container mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-y-3 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl">
@@ -64,8 +64,8 @@ const ServiceSection = () => {
           <div className="max-w-md">
             <TextAppearAnimation02>
               <p className="text-lg text-foreground/70">
-                We create refined, unforgettable experiences for discerning
-                clients.
+                Founded to redefine luxury event planning, we craft experiences
+                that are unique, timeless, and flawlessly executed.
               </p>
             </TextAppearAnimation02>
           </div>
@@ -75,24 +75,24 @@ const ServiceSection = () => {
         {services.map((service, index) => (
           <div key={index} className="service-card group">
             <div className="relative aspect-square mb-6 overflow-hidden">
-              <a href={service.link}>
+              <Link href={service.link}>
                 <ImageWithFallback
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-              </a>
+              </Link>
             </div>
             <h2 className="text-3xl mb-4">{service.title}</h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
               {service.description}
             </p>
-            {/* <Link
+            <Link
               href={service.link}
               className="inline-block text-sm tracking-wider border-b border-current pb-1 hover:text-accent transition-colors"
             >
               LEARN MORE
-            </Link> */}
+            </Link>
           </div>
         ))}
       </div>
@@ -102,7 +102,7 @@ const ServiceSection = () => {
           href="/services"
           className="inline-block text-sm tracking-wider border-b border-current pb-1 hover:text-accent transition-colors"
         >
-          SEE MORE SERVICES
+          VIEW ALL SERVICES
         </Link>
       </div>
 
