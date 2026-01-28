@@ -13,9 +13,41 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "http://localhost:3000").replace(
+  /\/+$/,
+  "",
+);
+
 export const metadata: Metadata = {
-  title: "The Chimera Company | Luxury Event Management",
-  description: "Bespoke. Luxury. Destination Event Management. We design and deliver exceptional experiences for clients who value detail, discretion, and distinction.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "The Chimera Company | Luxury Event Management",
+    template: "%s | The Chimera Company",
+  },
+  description:
+    "Bespoke. Luxury. Destination Event Management. We design and deliver exceptional experiences for clients who value detail, discretion, and distinction.",
+  applicationName: "The Chimera Company",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "The Chimera Company",
+    title: "The Chimera Company | Luxury Event Management",
+    description:
+      "Bespoke. Luxury. Destination Event Management. We design and deliver exceptional experiences for clients who value detail, discretion, and distinction.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Chimera Company | Luxury Event Management",
+    description:
+      "Bespoke. Luxury. Destination Event Management. We design and deliver exceptional experiences for clients who value detail, discretion, and distinction.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
