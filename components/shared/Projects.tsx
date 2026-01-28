@@ -40,7 +40,7 @@ export function Projects() {
   };
 
   return (
-    <section ref={ref} className="py-16 lg:py-24 bg-card">
+    <section id="portfolio" ref={ref} className="py-16 lg:py-24 bg-card">
       <div className="max-w-350 mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <motion.div
@@ -49,12 +49,12 @@ export function Projects() {
           variants={fadeInUp}
           className="text-center mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-md mx-auto tracking-tight">
-            A LOOK AT OUR RECENT EVENTS
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl max-w-xl mx-auto tracking-tight">
+            OUR WORK SPEAKS FOR ITSELF
           </h2>
-          <p className="text-sm lg:text-base text-muted-foreground max-w-xl mx-auto mt-6 leading-relaxed">
-            Explore a selection of our recent events, each one a testament to
-            meticulous planning, creative vision, and flawless execution.
+          <p className="text-sm lg:text-base text-muted-foreground max-w-2xl mx-auto mt-6 leading-relaxed">
+            From intimate weddings to grand corporate galas, every event we craft is a reflection of the people behind it.
+            Explore our portfolio and see how The Chimera Company transforms ideas into extraordinary experiences.
           </p>
         </motion.div>
 
@@ -189,6 +189,15 @@ export function Projects() {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/portfolio"
+            className="inline-block border-b-2 border-foreground pb-1 text-sm tracking-wider uppercase hover:text-accent transition-colors"
+          >
+            View Portfolio
+          </Link>
+        </div>
       </div>
     </section>
   );
