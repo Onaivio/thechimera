@@ -10,7 +10,6 @@ const SmoothScroll = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const lenis = new Lenis({
       smoothWheel: true,
-      smoothTouch: false,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
