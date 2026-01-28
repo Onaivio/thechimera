@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getAllProjects } from "@/data/projects";
 import { getAllServices } from "@/data/services";
 
+export const dynamic = "force-static";
+
 function siteUrl() {
   const raw = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "http://localhost:3000";
   return raw.replace(/\/+$/, "");
