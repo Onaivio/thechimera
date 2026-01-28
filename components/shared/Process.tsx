@@ -12,24 +12,31 @@ gsap.registerPlugin(ScrollTrigger);
 const processSteps = [
 	{
 		number: "01",
-		title: "DESIGN YOUR VISION BOARD",
+		title: "DISCOVER",
 		description:
-			"We begin by understanding your story, your aesthetic, and your dreams. Through thoughtful conversations and detailed questionnaires, we gather inspiration to create a vision that reflects your unique style and the essence of your celebration.",
+			"We listen to your vision, style, and goals — then align on what matters most so every decision supports your story.",
 		image: "https://images.unsplash.com/photo-1606744824163-985d376605aa?w=1200&q=80",
 	},
 	{
 		number: "02",
-		title: "STRATEGIZE YOUR SPACE",
+		title: "DESIGN",
 		description:
-			"From venue selection to layout design, we meticulously plan every spatial element. We curate the perfect location, optimize flow for guest experience, and design atmospheres that transform ordinary spaces into extraordinary destinations.",
-		image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80",
+			"We curate concepts, vendors, and experiences tailored to you — from aesthetics to atmosphere — with intention in every detail.",
+		image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&q=80",
 	},
 	{
 		number: "03",
-		title: "ELEVATE YOUR DECOR",
+		title: "EXECUTE",
 		description:
-			"We bring your vision to life through exquisite design details. From luxurious florals to ambient lighting, custom furniture to statement pieces, every element is carefully selected and placed to create a cohesive, breathtaking aesthetic that leaves lasting impressions.",
-		image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&q=80",
+			"We manage logistics, timelines, and on-site coordination with precision, so your celebration feels effortless from start to finish.",
+		image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80",
+	},
+	{
+		number: "04",
+		title: "DELIVER",
+		description:
+			"You enjoy the moment — we ensure every element is flawless, discreetly handling every detail behind the scenes.",
+		image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80",
 	},
 ];
 
@@ -91,16 +98,16 @@ export function Process() {
 	);
 
 	return (
-		<section ref={container} className="py-16 bg-secondary/30">
+		<section id="process" ref={container} className="py-16 bg-secondary/30">
 			<div className="max-w-7xl mx-auto px-6 lg:px-12">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 					{/* Left Content - Accordion */}
 					<div>
 						<p className="section-header-subtitle text-xs lg:text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
-							Our Process
+							Process / How We Work
 						</p>
 						<h2 className="section-header-title text-4xl lg:text-5xl xl:text-6xl tracking-tight mb-12">
-							OUR PROCESS
+							OUR APPROACH
 						</h2>
 
 						{/* Accordion Steps */}
