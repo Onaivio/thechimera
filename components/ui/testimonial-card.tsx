@@ -14,7 +14,7 @@ export function TestimonialCard({
   avatar,
 }: TestimonialCardProps) {
   return (
-    <div className="flex-shrink-0 w-[400px] bg-background border border-foreground/10 p-8 mx-3 transition-colors duration-300">
+    <div className="shrink-0 w-[calc(100vw-3rem)] sm:w-[400px] bg-background border border-foreground/10 p-6 sm:p-8 mx-3 transition-colors duration-300">
       <div className="mb-6">
         <span>
           <svg

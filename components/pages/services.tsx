@@ -78,8 +78,8 @@ export function ServicesPage() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center text-white px-6">
-          <h1 className="services-hero-title text-6xl md:text-8xl mb-6">OUR SERVICES</h1>
-          <p className="services-hero-subtitle text-xl max-w-2xl mx-auto opacity-90">
+          <h1 className="services-hero-title text-4xl sm:text-6xl md:text-8xl mb-6">OUR SERVICES</h1>
+          <p className="services-hero-subtitle text-base sm:text-xl max-w-2xl mx-auto opacity-90">
             Luxury event planning crafted around your story
           </p>
         </div>
@@ -118,8 +118,8 @@ export function ServicesPage() {
       <section className="cta-section py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <div>
-            <h2 className="text-5xl mb-6">READY TO CREATE SOMETHING EXCEPTIONAL?</h2>
-            <p className="text-lg text-muted-foreground mb-10">
+            <h2 className="text-3xl sm:text-5xl mb-6">READY TO CREATE SOMETHING EXCEPTIONAL?</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mb-10">
               Book a consultation and let&apos;s translate your vision into an unforgettable experience.
             </p>
             <div>

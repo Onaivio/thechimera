@@ -50,7 +50,10 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <section id="services" className="overflow-hidden pb-14 pt-14 md:pb-16 md:pt-16 max-w-7xl mx-auto">
+    <section
+      id="services"
+      className="overflow-hidden pb-14 px-3.5 pt-14 md:pb-16 md:pt-16 max-w-7xl mx-auto"
+    >
       <div className="container mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-y-3 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl">

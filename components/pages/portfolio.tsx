@@ -85,10 +85,10 @@ export function Portfolio() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 text-center text-primary-foreground px-6">
-          <h1 className="hero-title text-white text-6xl md:text-8xl mb-6 max-w-2xl">
+          <h1 className="hero-title text-white text-4xl sm:text-6xl md:text-8xl mb-6 max-w-2xl">
             OUR WORK SPEAKS FOR ITSELF
           </h1>
-          <p className="hero-subtitle md:text-lg text-white max-w-2xl mx-auto opacity-90">
+          <p className="hero-subtitle text-sm sm:text-base md:text-lg text-white max-w-2xl mx-auto opacity-90">
             From intimate weddings to grand corporate galas, explore how we
             transform ideas into extraordinary experiences.
           </p>
@@ -99,7 +99,7 @@ export function Portfolio() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-32">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 className="project-item grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center"

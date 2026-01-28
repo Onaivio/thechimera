@@ -97,10 +97,10 @@ export function Contact() {
     <div ref={container} className="min-h-screen">
       <section className="pt-32 lg:pt-40 pb-24 px-6 text-center">
         <div>
-          <h1 className="hero-title text-6xl md:text-8xl mb-6">
+          <h1 className="hero-title text-4xl sm:text-6xl md:text-8xl mb-6">
             GET IN TOUCH
           </h1>
-          <p className="hero-subtitle text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="hero-subtitle text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to create something exceptional? Tell us about your vision.
           </p>
         </div>
@@ -201,7 +201,7 @@ export function Contact() {
 
       <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="faq-section-title text-4xl md:text-5xl text-center mb-16">
+          <h2 className="faq-section-title text-3xl sm:text-4xl md:text-5xl text-center mb-16">
             FREQUENTLY ASKED QUESTIONS
           </h2>
           <div className="space-y-4">
@@ -211,7 +211,7 @@ export function Contact() {
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full flex justify-between items-center text-left py-4"
                 >
-                  <span className="text-lg">{faq.question}</span>
+                  <span className="text-base sm:text-lg">{faq.question}</span>
                   <ChevronDown
                     className={`w-6 h-6 transition-transform ${
                       openFaq === index ? 'transform rotate-180' : ''

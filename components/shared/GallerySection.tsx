@@ -224,7 +224,7 @@ function GalleryItem({
 }) {
   return (
     <motion.div
-      className="relative h-[350px] w-[280px] lg:h-[350px] lg:w-[320px] overflow-hidden border border-(--border-color) group cursor-pointer bg-(--bg-secondary)"
+      className="relative h-[320px] w-[240px] sm:h-[350px] sm:w-[280px] lg:h-[350px] lg:w-[320px] overflow-hidden border border-(--border-color) group cursor-pointer bg-(--bg-secondary)"
       whileHover={{ scale: 0.98 }}
       transition={{ duration: 0.3 }}
       onClick={onClick}
@@ -233,7 +233,7 @@ function GalleryItem({
         src={src}
         alt={`Gallery image ${index + 1}`}
         fill
-        sizes="(max-width: 768px) 280px, 320px"
+        sizes="(max-width: 640px) 240px, (max-width: 768px) 280px, 320px"
         className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
       />
       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
