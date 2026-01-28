@@ -297,8 +297,21 @@ export const projects: Project[] = [
 ];
 
 // Helper functions
+function normalizeSlug(input: string) {
+  const decoded = (() => {
+    try {
+      return decodeURIComponent(input);
+    } catch {
+      return input;
+    }
+  })();
+
+  return decoded.trim().replace(/^\/+|\/+$/g, "").toLowerCase();
+}
+
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((project) => project.slug === slug);
+  const target = normalizeSlug(slug);
+  return projects.find((project) => normalizeSlug(project.slug) === target);
 }
 
 export function getAllProjects(): Project[] {
@@ -306,8 +319,9 @@ export function getAllProjects(): Project[] {
 }
 
 export function getRelatedProjects(currentSlug: string, limit: number = 2): Project[] {
+  const current = normalizeSlug(currentSlug);
   return projects
-    .filter((project) => project.slug !== currentSlug)
+    .filter((project) => normalizeSlug(project.slug) !== current)
     .slice(0, limit);
 }
 
