@@ -107,7 +107,7 @@ export function EventsSection() {
                 perfect space for your special occasion.
               </p>
               <div className="flex gap-4">
-                <Link href="/contact">
+                <Link href="/consultation">
                   <Button variant="outline">Book an Event</Button>
                 </Link>
                 {/* <Link href="/venues">
