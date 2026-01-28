@@ -132,7 +132,7 @@ export function Header() {
                 width={110}
                 height={40}
                 priority
-                className="hidden dark:block w-full h-auto "
+                className="hidden dark:block"
               />
             </motion.div>
           </Link>
