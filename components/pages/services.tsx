@@ -18,7 +18,7 @@ export function ServicesPage() {
     {
       title: "WEDDINGS",
       description:
-        "Tailored celebrations that reflect your love story, your culture, and your vision. From intimate ceremonies to grand destination affairs, we curate every detail to create a day that feels authentically yours.",
+        "Tailored celebrations that reflect your love story, culture, and personality — from design to execution, every moment feels effortless.",
       image:
         "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
       link: "/services/weddings",
@@ -26,41 +26,25 @@ export function ServicesPage() {
     {
       title: "CORPORATE EVENTS",
       description:
-        "Polished, strategic events that strengthen your brand and engage your audience. Product launches, conferences, executive retreats, and client experiences designed with precision and purpose.",
+        "Polished, strategic events that enhance your brand, engage your audience, and leave a lasting professional impression.",
       image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
       link: "/services/corporate",
     },
     {
       title: "SOCIAL EVENTS",
       description:
-        "Elegant gatherings for life's meaningful moments. Milestone birthdays, anniversaries, private dinners, and intimate soirées crafted with sophistication and care.",
+        "From milestone birthdays to private soirées, we create elegant gatherings that turn life’s moments into cherished memories.",
       image:
         "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
       link: "/services/social",
     },
     {
-      title: "DESTINATION MANAGEMENT",
+      title: "DESTINATION EVENTS",
       description:
-        "Comprehensive coordination for events in extraordinary locations. Venue selection, vendor curation, guest logistics, and on-site execution anywhere in the world.",
+        "Planning beyond borders — seamless, stress-free experiences in breathtaking locations.",
       image:
         "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800",
       link: "/services/destination",
-    },
-    {
-      title: "FULL-SERVICE PLANNING",
-      description:
-        "End-to-end event management from concept to completion. Design, logistics, vendor coordination, timeline management, and flawless day-of execution.",
-      image:
-        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800",
-      link: "/services/planning",
-    },
-    {
-      title: "DESIGN & STYLING",
-      description:
-        "Bespoke aesthetic direction and design services. Color palettes, florals, lighting, décor, and styling that brings your vision to life with intention and elegance.",
-      image:
-        "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800",
-      link: "/services/design",
     },
   ];
 
@@ -96,7 +80,7 @@ export function ServicesPage() {
         <div className="relative z-10 text-center text-white px-6">
           <h1 className="services-hero-title text-6xl md:text-8xl mb-6">OUR SERVICES</h1>
           <p className="services-hero-subtitle text-xl max-w-2xl mx-auto opacity-90">
-            Comprehensive event management solutions tailored to your vision
+            Luxury event planning crafted around your story
           </p>
         </div>
       </section>
@@ -131,26 +115,24 @@ export function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      {/* <section className="cta-section py-24 px-6 bg-muted/30">
+      <section className="cta-section py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <div>
-            <h2 className="text-5xl mb-6">
-              READY TO CREATE SOMETHING EXCEPTIONAL?
-            </h2>
+            <h2 className="text-5xl mb-6">READY TO CREATE SOMETHING EXCEPTIONAL?</h2>
             <p className="text-lg text-muted-foreground mb-10">
-              Let&apos;s design an experience your guests will never forget.
+              Book a consultation and let&apos;s translate your vision into an unforgettable experience.
             </p>
             <div>
               <Link
-                href="/contact"
-                className="inline-block bg-primary text-primary-foreground px-12 py-4 rounded-full hover:bg-primary/90 transition-colors tracking-wider"
+                href="/consultation"
+                className="inline-block border-b-2 border-foreground pb-1 text-sm tracking-wider uppercase hover:text-accent hover:border-accent transition-colors"
               >
-                SCHEDULE A CONSULTATION
+                Schedule Your Consultation
               </Link>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
