@@ -1,23 +1,19 @@
 "use client";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useTheme } from "next-themes";
-
-function getHeaderLogoSrc(resolvedTheme?: string) {
-  return resolvedTheme === "dark" ? "/logo.svg" : "/logo-dark.svg";
-}
+import { useUiStore } from "@/stores/ui-store";
 
 export function Header() {
   const location = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMenuOpen = useUiStore((s) => s.isMobileMenuOpen);
+  const setIsMenuOpen = useUiStore((s) => s.setMobileMenuOpen);
   const headerRef = useRef<HTMLElement>(null);
-  const { resolvedTheme } = useTheme();
 
   useGSAP(() => {
     let lastScroll = 0;
@@ -84,11 +80,20 @@ export function Header() {
               whileHover={{ scale: 1.05 }}
             >
               <Image
-                src={getHeaderLogoSrc(resolvedTheme)}
+                src="/logo-dark.svg"
                 alt="The Chimera Company Logo"
                 width={110}
                 height={40}
                 priority
+                className="block dark:hidden"
+              />
+              <Image
+                src="/logo-light.svg"
+                alt="The Chimera Company Logo"
+                width={110}
+                height={40}
+                priority
+                className="hidden dark:block"
               />
             </motion.div>
           </Link>
