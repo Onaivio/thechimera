@@ -95,7 +95,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/55"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/55"
     >
       <div className="max-w-350 mx-auto px-6 lg:px-12 py-3">
         <div className="flex items-center lg:justify-center justify-between gap-8 lg:gap-12">
@@ -132,7 +132,7 @@ export function Header() {
                 width={110}
                 height={40}
                 priority
-                className="hidden dark:block"
+                className="hidden dark:block w-full h-auto "
               />
             </motion.div>
           </Link>
