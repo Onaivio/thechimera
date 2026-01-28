@@ -6,13 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,14 +20,14 @@ export function ThemeToggle() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const current = resolvedTheme || "light";
+    setTheme(current === "dark" ? "light" : "dark");
   };
-
-  if (!mounted) return null;
 
   return (
     <AnimatePresence>
@@ -49,30 +44,8 @@ export function ThemeToggle() {
           aria-label="Toggle theme"
         >
           {/* Moon Icon */}
-          <motion.div
-            initial={false}
-            animate={{
-              rotate: theme === "dark" ? 0 : 180,
-              scale: theme === "dark" ? 1 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-            className="absolute"
-          >
-            <FiMoon className="w-5 h-5 text-primary" />
-          </motion.div>
-
-          {/* Sun Icon */}
-          <motion.div
-            initial={false}
-            animate={{
-              rotate: theme === "light" ? 0 : -180,
-              scale: theme === "light" ? 1 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-            className="absolute"
-          >
-            <FiSun className="w-5 h-5 text-primary" />
-          </motion.div>
+          <FiMoon className="w-5 h-5 text-primary block dark:hidden" />
+          <FiSun className="w-5 h-5 text-primary hidden dark:block" />
         </motion.button>
       )}
     </AnimatePresence>
