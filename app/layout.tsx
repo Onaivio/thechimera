@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/shared/SmoothScroll";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import CursorPointer from "@/components/animation/CursorPointer";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import ReactQueryProvider from "@/components/shared/react-query-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -66,9 +67,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CursorPointer />
-          <ThemeToggle />
-          <SmoothScroll>{children}</SmoothScroll>
+          <ReactQueryProvider>
+            <CursorPointer />
+            <ThemeToggle />
+            <SmoothScroll>{children}</SmoothScroll>
+          </ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>
